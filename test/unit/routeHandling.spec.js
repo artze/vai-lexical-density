@@ -1,20 +1,18 @@
 const request = require('request');
 const expect = require('chai').expect;
-const complexityApiUrl = 'http://localhost:3000/complexity'
+const domainUrl = require('../config/config').domainUrl;
+const complexityApiUrl = domainUrl + '/complexity'
 
 describe('Route handling', function() {
     describe('send POST request to \'/complexity\' with correct request body', function() {        
-        let requestBody;
-        before(function() {
-            requestBody = {
-                textInput: "A quick brown fox jumps over the lazy dog."
-            }
-        })
-
         it('should return response status 200', function(done) {
+            const requestBody = {
+                textInput: 'A quick brown fox jumps over the lazy dog.'
+            }
             request.post({
                 url: complexityApiUrl,
-                body: JSON.stringify(requestBody)
+                json: true,
+                body: requestBody
             }, function(err, res, body) {
                 expect(res.statusCode).to.equal(200);
                 done();
@@ -25,9 +23,25 @@ describe('Route handling', function() {
     describe('send POST request to \'/complexity\' with empty request body', function() {
         it('should return response status 400', function(done) {
             request.post({
-                url: complexityApiUrl
+                url: complexityApiUrl,
+                json: true,
+                body: {}
             }, function(err, res, body) {
                 expect(res.statusCode).to.equal(400);
+                done();
+            })
+        })
+    })
+
+    describe('send POST request to incorrect API url endpoint', function() {
+        it('should return response status 404', function(done) {
+            request.post({
+                url: domainUrl + '/doesnotexist',
+                json: true,
+                body: {}
+            }, function(err, res, body) {
+                expect(res.statusCode).to.equal(404);
+                expect(body.error).to.equal('ResourceNotFoundError');
                 done();
             })
         })
