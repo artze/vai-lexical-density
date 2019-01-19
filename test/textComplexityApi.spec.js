@@ -18,12 +18,13 @@ describe('Text complexity API', function() {
                         overall_ld: 0.67
                     }
                 })
+                done();
             })
         })
     })
 
     describe('Query text complexity by calling API endpoint in \'verbose\' mode', function() {
-        it('Should return correct values in correct format', function() {
+        it('Should return correct values in correct format', function(done) {
             const requestBody = {
                 textInput: 'Kim loves going​ to the cinema. A quick brown fox jumps over the lazy dog.'
             }
@@ -38,6 +39,7 @@ describe('Text complexity API', function() {
                         overall_ld: 0.73
                     }
                 })
+                done();
             })
         })
     })
