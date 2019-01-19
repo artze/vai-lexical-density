@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
-    "test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test mocha --recursive",
     "start": "node ./bin/www"
   },
   "dependencies": {
