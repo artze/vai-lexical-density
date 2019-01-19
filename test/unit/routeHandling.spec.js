@@ -3,9 +3,7 @@ const expect = require('chai').expect;
 const complexityApiUrl = 'http://localhost:3000/complexity'
 
 describe('Route handling', function() {
-
-    describe('send POST request to \'/complexity\' with correct request body', function() {
-        
+    describe('send POST request to \'/complexity\' with correct request body', function() {        
         let requestBody;
         before(function() {
             requestBody = {
@@ -22,11 +20,9 @@ describe('Route handling', function() {
                 done();
             })
         })
-
     })
 
     describe('send POST request to \'/complexity\' with empty request body', function() {
-
         it('should return response status 400', function(done) {
             request.post({
                 url: complexityApiUrl
@@ -35,7 +31,5 @@ describe('Route handling', function() {
                 done();
             })
         })
-
     })
-
 })
