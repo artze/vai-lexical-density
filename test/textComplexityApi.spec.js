@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const request = require('request');
 const complexityApiUrl = 'http://localhost:3000/complexity'
+const testData = require('./data/testData');
 
 describe('Text complexity API', function() {
     describe('Query text complexity by calling API endpoint', function() {
@@ -41,6 +42,23 @@ describe('Text complexity API', function() {
                         overall_ld: 0.73
                     }
                 })
+                done();
+            })
+        })
+    })
+
+    describe('Query text complexity API endpoint with input of length exceeding limit', function() {
+        it('Should return response with 400 status code', function(done) {
+            const requestBody = {
+                textInput: testData.hundredAndOneWords
+            }
+
+            request.post({
+                url: complexityApiUrl,
+                json: true,
+                body: requestBody
+            }, function(err, res, body) {
+                expect(res.statusCode).to.equal(400);
                 done();
             })
         })
