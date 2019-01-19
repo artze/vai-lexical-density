@@ -1,6 +1,7 @@
 const request = require('request');
 const expect = require('chai').expect;
-const complexityApiUrl = 'http://localhost:3000/complexity'
+const domainUrl = require('../config/config').domainUrl;
+const complexityApiUrl = domainUrl + '/complexity'
 
 describe('Route handling', function() {
     describe('send POST request to \'/complexity\' with correct request body', function() {        

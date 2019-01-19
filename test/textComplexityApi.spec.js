@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const request = require('request');
-const complexityApiUrl = 'http://localhost:3000/complexity'
+const domainUrl = require('./config/config').domainUrl;
+const complexityApiUrl = domainUrl + '/complexity'
 const testData = require('./data/testData');
 
 describe('Text complexity API', function() {
