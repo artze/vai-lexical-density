@@ -14,7 +14,7 @@ describe('Text complexity API', function() {
                 json: true,
                 body: requestBody
             }, function(err, res, body) {
-                expect(JSON.parse(body)).to.deep.equal({
+                expect(body).to.deep.equal({
                     data: {
                         overall_ld: 0.67
                     }
@@ -35,7 +35,7 @@ describe('Text complexity API', function() {
                 json: true,
                 body: requestBody
             }, function(err, res, body) {
-                expect(JSON.parse(body)).to.deep.equal({
+                expect(body).to.deep.equal({
                     data: {
                         sentence_ld: [0.67, 0.78],
                         overall_ld: 0.73
