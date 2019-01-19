@@ -23,9 +23,25 @@ describe('Route handling', function() {
     describe('send POST request to \'/complexity\' with empty request body', function() {
         it('should return response status 400', function(done) {
             request.post({
-                url: complexityApiUrl
+                url: complexityApiUrl,
+                json: true,
+                body: {}
             }, function(err, res, body) {
                 expect(res.statusCode).to.equal(400);
+                done();
+            })
+        })
+    })
+
+    describe('send POST request to incorrect API url endpoint', function() {
+        it('should return response status 404', function(done) {
+            request.post({
+                url: domainUrl + '/doesnotexist',
+                json: true,
+                body: {}
+            }, function(err, res, body) {
+                expect(res.statusCode).to.equal(404);
+                expect(body.error).to.equal('ResourceNotFoundError');
                 done();
             })
         })
