@@ -11,7 +11,8 @@ describe('Text complexity API', function() {
 
             request.post({
                 url: complexityApiUrl,
-                body: JSON.stringify(requestBody)
+                json: true,
+                body: requestBody
             }, function(err, res, body) {
                 expect(JSON.parse(body)).to.deep.equal({
                     data: {
@@ -31,7 +32,8 @@ describe('Text complexity API', function() {
 
             request.post({
                 url: complexityApiUrl + '?mode=verbose',
-                body: JSON.stringify(requestBody)
+                json: true,
+                body: requestBody
             }, function(err, res, body) {
                 expect(JSON.parse(body)).to.deep.equal({
                     data: {
