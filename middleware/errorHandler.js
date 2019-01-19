@@ -5,8 +5,8 @@ function errorHandler(err, req, res, next) {
         res.status(400).end(err.message);
         break;
 
-        case 'ResourceNotFoundError':
-        res.status(404).end();
+        case 'InputLengthExceededError':
+        res.status(400).end(err.message);
         break;
 
         default:
