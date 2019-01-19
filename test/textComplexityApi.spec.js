@@ -48,7 +48,7 @@ describe('Text complexity API', function() {
     })
 
     describe('Query text complexity API endpoint with input of length exceeding limit', function() {
-        it('Should return response with 400 status code', function(done) {
+        it('Should return response with 400 status code and InputLengthExceededError', function(done) {
             const requestBody = {
                 textInput: testData.hundredAndOneWords
             }
@@ -58,7 +58,20 @@ describe('Text complexity API', function() {
                 json: true,
                 body: requestBody
             }, function(err, res, body) {
-                expect(res.statusCode).to.equal(400);
+                expect(body.error).to.equal('InputLengthExceededError');
+                done();
+            })
+        })
+    })
+
+    describe('Query text complexity API endpoint with empty input', function() {
+        it('Should return response with 400 status code and InvalidInputError', function(done) {
+            request.post({
+                url: complexityApiUrl,
+                json: true,
+                body: {}
+            }, function(err, res, body) {
+                expect(body.error).to.equal('InvalidInputError');
                 done();
             })
         })
