@@ -6,7 +6,7 @@ describe('Route handling', function() {
     describe('send POST request to \'/complexity\' with correct request body', function() {        
         it('should return response status 200', function(done) {
             const requestBody = {
-                textInput: "A quick brown fox jumps over the lazy dog."
+                textInput: 'A quick brown fox jumps over the lazy dog.'
             }
             request.post({
                 url: complexityApiUrl,
