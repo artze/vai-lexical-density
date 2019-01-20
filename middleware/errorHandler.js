@@ -22,6 +22,13 @@ function errorHandler(err, req, res, next) {
         });
         break;
 
+        case 'UnauthorizedError':
+        res.status(401).json({
+            error: err.name,
+            errorMessage: err.message
+        });
+        break;
+
         default:
         res.status(500).end();
         break;

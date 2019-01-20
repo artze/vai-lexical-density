@@ -23,6 +23,27 @@ function getAllNonLexicalWords() {
     })
 }
 
+/**
+ * Add one non-lexical word to database
+ * @param {string} word 
+ * @returns {Promise}
+ */
+function addNonLexicalWord(word) {
+
+    return new Promise(function(resolve, reject) {
+        NonLexicalWord.create({
+            word: word
+        })
+            .then(function(entryObj) {
+                resolve(entryObj);
+            })
+            .catch(function(err) {
+                reject(err);
+            })
+    })
+}
+
 module.exports = {
-    getAllNonLexicalWords
+    getAllNonLexicalWords,
+    addNonLexicalWord
 }

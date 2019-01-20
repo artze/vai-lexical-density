@@ -46,4 +46,34 @@ describe('Route handling', function() {
             })
         })
     })
+
+    describe('send POST request to \'/non-lexical-words\' with no credentials', function() {
+        it('should return response status 401', function(done) {
+            request.post({
+                url: domainUrl + '/non-lexical-words',
+                json: true,
+                body: {}
+            }, function(err, res, body) {
+                expect(res.statusCode).to.equal(401);
+                done();
+            })
+        })
+    })
+
+    describe('send POST request to \'/non-lexical-words\' with correct credentials but empty body', function() {
+        it('should return response status 400', function(done) {
+            request.post({
+                url: domainUrl + '/non-lexical-words',
+                auth: {
+                    user: 'vaitrade',
+                    pass: 'vai123'
+                },
+                json: true,
+                body: {}
+            }, function(err, res, body) {
+                expect(res.statusCode).to.equal(400);
+                done();
+            })
+        })
+    })
 })
