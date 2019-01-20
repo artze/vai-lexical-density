@@ -1,7 +1,7 @@
 # Lexical Density
 1. Clone repository
 2. Run `npm install` to install all dependencies
-3. Run `npm start` to start API application
+3. Run `npm start` to start API application. Application runs at `http://localhost:3000` by default.
 4. Follow documentation below
 
 ## API Documentation
