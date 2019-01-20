@@ -12,6 +12,7 @@ function init() {
 
 function disconnect() {
     mongoose.disconnect();
+    console.log('DB connection closed');
 }
 
 module.exports = {

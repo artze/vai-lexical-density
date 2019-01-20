@@ -25,9 +25,7 @@ nonLexicalWordArr.forEach(function(word) {
 Promise.all(wordCreationPromiseArr)
     .then(function() {
         db.disconnect();
-        console.log('DB connection closed');
     })
     .catch(function() {
         db.disconnect();
-        console.log('DB connection closed');
     })
