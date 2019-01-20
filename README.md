@@ -37,8 +37,9 @@
 }
 ```
 
-#### Add Non-lexical Word to Datbase
+#### Add Non-lexical Word to Database
 * Send `POST` request to `/non-lexical-words`
+* Basic auth required. User: `vaitrade` Pass: `vai123`
 * `POST` request body format:
 ```
 {
