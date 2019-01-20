@@ -10,6 +10,11 @@ function init() {
         })
 }
 
+function disconnect() {
+    mongoose.disconnect();
+}
+
 module.exports = {
-    init
+    init,
+    disconnect
 }
