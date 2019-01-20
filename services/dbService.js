@@ -34,8 +34,8 @@ function addNonLexicalWord(word) {
         NonLexicalWord.create({
             word: word
         })
-            .then(function() {
-                resolve();
+            .then(function(entryObj) {
+                resolve(entryObj);
             })
             .catch(function(err) {
                 reject(err);
