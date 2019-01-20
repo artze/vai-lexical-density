@@ -47,14 +47,14 @@ describe('Route handling', function() {
         })
     })
 
-    describe('send POST request to \'/non-lexical-words\' with correct request body', function() {
-        it('should return response status 201', function(done) {
+    describe('send POST request to \'/non-lexical-words\' with empty request body', function() {
+        it('should return response status 400', function(done) {
             request.post({
                 url: domainUrl + '/non-lexical-words',
                 json: true,
                 body: {}
             }, function(err, res, body) {
-                expect(res.statusCode).to.equal(201);
+                expect(res.statusCode).to.equal(400);
                 done();
             })
         })
