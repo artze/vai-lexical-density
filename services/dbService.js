@@ -11,11 +11,11 @@ function getAllNonLexicalWords() {
     return new Promise(function(resolve, reject) {
         NonLexicalWord.find({})
             .then(function(resultArr) {
-                let nonLexicalWordArr = resultArr.map(function(resultObj) {
+                let nonLexicalWordsArr = resultArr.map(function(resultObj) {
                     return resultObj.word;
                 })
                 
-                resolve(nonLexicalWordArr);
+                resolve(nonLexicalWordsArr);
             })
             .catch(function(err) {
                 reject(err);
