@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const nonLexicalWordsController = require('../controllers/nonLexicalWords');
 
-router.post('/', function(req, res) {
-    res.status(200).end();
-})
+router.post('/', nonLexicalWordsController.addNonLexicalWordToDb);
 
 module.exports = router;
